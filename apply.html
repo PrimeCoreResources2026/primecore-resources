@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply Now | PrimeCore Resources</title>
+
+<style>
+
+/* =====================================================
+   PRIMECORE RESOURCES
+   APPLICATION PAGE
+===================================================== */
+
+:root{
+    --navy:#0b1830;
+    --blue:#2f5bea;
+    --light-blue:#dce7ff;
+    --white:#ffffff;
+    --text:#182235;
+    --muted:#667085;
+    --border:#e3e8f0;
+    --soft:#f5f7fb;
+    --success:#16794a;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:var(--soft);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    background:var(--navy);
+    width:100%;
+    padding:22px 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+/* LOGO */
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-mark{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:var(--blue);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    font-weight:800;
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+
+.brand-name{
+    color:var(--white);
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:-.4px;
+}
+
+.brand-sub{
+    color:rgba(255,255,255,.72);
+    font-size:10px;
+    letter-spacing:3px;
+    margin-top:5px;
+}
+
+
+/* NAVIGATION */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:var(--white);
+    font-size:14px;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.nav-links a:hover{
+    color:var(--light-blue);
+}
+
+.nav-button{
+    background:var(--white);
+    color:var(--navy)!important;
+    padding:11px 20px;
+    border-radius:30px;
+}
+
+.menu-button{
+    display:none;
+    border:0;
+    background:none;
+    color:var(--white);
+    font-size:30px;
+}
+
+
+/* MOBILE MENU */
+
+.mobile-menu{
+    display:none;
+    position:absolute;
+    top:82px;
+    left:5%;
+    right:5%;
+    background:var(--white);
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.mobile-menu.active{
+    display:block;
+}
+
+.mobile-menu a{
+    display:block;
+    color:var(--navy);
+    padding:13px 10px;
+    font-weight:600;
+    border-bottom:1px solid var(--border);
+}
+
+
+/* =====================================================
+   APPLICATION HERO
+===================================================== */
+
+.apply-hero{
+    background:var(--navy);
+    color:var(--white);
+    padding:80px 5% 75px;
+    position:relative;
+    overflow:hidden;
+}
+
+.apply-hero:before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(47,91,234,.12);
+    right:-200px;
+    top:-300px;
+}
+
+.apply-hero:after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(220,231,255,.05);
+    left:-170px;
+    bottom:-220px;
+}
+
+.apply-hero-content{
+    max-width:950px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-block;
+    padding:8px 17px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:30px;
+    color:var(--white);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.apply-hero h1{
+    font-size:clamp(42px,6vw,65px);
+    line-height:1.05;
+    letter-spacing:-2.5px;
+    margin-bottom:18px;
+}
+
+.apply-hero p{
+    max-width:680px;
+    color:rgba(255,255,255,.76);
+    font-size:18px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   APPLICATION SECTION
+===================================================== */
+
+.application-section{
+    padding:75px 5% 100px;
+}
+
+.application-container{
+    max-width:950px;
+    margin:auto;
+}
+
+
+/* =====================================================
+   SELECTED JOB CARD
+===================================================== */
+
+.selected-job{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:28px 30px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(11,24,48,.04);
+}
+
+.selected-job-label{
+    color:var(--muted);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:7px;
+}
+
+.selected-job h2{
+    color:var(--navy);
+    font-size:25px;
+    margin-bottom:3px;
+}
+
+.selected-job-company{
+    color:var(--muted);
+    font-size:15px;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:38px;
+    box-shadow:0 10px 35px rgba(11,24,48,.05);
+}
+
+.form-heading{
+    margin-bottom:30px;
+}
+
+.form-heading h2{
+    color:var(--navy);
+    font-size:28px;
+    letter-spacing:-.7px;
+    margin-bottom:7px;
+}
+
+.form-heading p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    color:var(--navy);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.required{
+    color:#d92d20;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:var(--white);
+    color:var(--text);
+    padding:13px 14px;
+    outline:none;
+    transition:.2s ease;
+}
+
+.form-group input,
+.form-group select{
+    height:48px;
+}
+
+.form-group textarea{
+    min-height:135px;
+    resize:vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#98a2b3;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(47,91,234,.08);
+}
+
+
+/* =====================================================
+   RESUME UPLOAD
+===================================================== */
+
+.upload-box{
+    border:1.5px dashed #cbd5e1;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    background:var(--soft);
+    transition:.2s ease;
+}
+
+.upload-box:hover{
+    border-color:var(--blue);
+}
+
+.upload-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.upload-box strong{
+    display:block;
+    color:var(--navy);
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.upload-box span{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.upload-box input{
+    width:100%;
+    font-size:13px;
+    color:var(--muted);
+}
+
+
+/* =====================================================
+   CHECKBOX
+===================================================== */
+
+.agreement{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-top:5px;
+}
+
+.agreement input{
+    width:17px;
+    height:17px;
+    margin-top:3px;
+    accent-color:var(--blue);
+}
+
+.agreement label{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.5;
+}
+
+.agreement a{
+    color:var(--blue);
+    font-weight:600;
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+.submit-area{
+    margin-top:30px;
+    padding-top:25px;
+    border-top:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.submit-note{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.submit-btn{
+    min-height:52px;
+    padding:13px 30px;
+    border:0;
+    border-radius:30px;
+    background:var(--blue);
+    color:var(--white);
+    font-size:14px;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+    background:#244bc8;
+    box-shadow:0 10px 25px rgba(47,91,234,.2);
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-message{
+    display:none;
+    background:#e8f7ef;
+    border:1px solid #b7e4ca;
+    color:var(--success);
+    border-radius:14px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+.success-message.active{
+    display:block;
+}
+
+.success-message h3{
+    margin-bottom:5px;
+    font-size:19px;
+}
+
+.success-message p{
+    font-size:14px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.apply-cta{
+    background:var(--blue);
+    color:var(--white);
+    text-align:center;
+    padding:75px 5%;
+    position:relative;
+    overflow:hidden;
+}
+
+.apply-cta:before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    right:-200px;
+    top:-300px;
+}
+
+.apply-cta-content{
+    max-width:700px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.apply-cta h2{
+    font-size:clamp(30px,5vw,45px);
+    line-height:1.1;
+    letter-spacing:-1.3px;
+    margin-bottom:15px;
+}
+
+.apply-cta p{
+    color:rgba(255,255,255,.8);
+    margin-bottom:25px;
+}
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:12px 24px;
+    border-radius:30px;
+    background:var(--white);
+    color:var(--blue);
+    font-size:14px;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+.back-btn:hover{
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:var(--navy);
+    color:var(--white);
+    padding:70px 5% 25px;
+}
+
+.footer-grid{
+    max-width:1250px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.8fr
+        1fr
+        1fr
+        1.15fr
+        1.15fr
+        1.3fr;
+
+    gap:40px;
+
+    align-items:start;
+}
+
+
+/* BRAND */
+
+.footer-brand{
+    max-width:330px;
+}
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.footer-logo-mark{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:var(--blue);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    font-weight:800;
+}
+
+.footer-logo-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+
+.footer-logo-text strong{
+    font-size:21px;
+    font-weight:800;
+    color:var(--white);
+    letter-spacing:-.4px;
+}
+
+.footer-logo-text span{
+    margin-top:5px;
+    font-size:10px;
+    letter-spacing:3px;
+    color:var(--light-blue);
+}
+
+.footer-brand p{
+    color:rgba(255,255,255,.62);
+    font-size:14px;
+    line-height:1.7;
+    max-width:320px;
+}
+
+
+/* FOOTER COLUMNS */
+
+.footer-column h4,
+.footer-newsletter h4{
+    margin-bottom:17px;
+    color:var(--light-blue);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.footer-column a{
+    display:block;
+    margin:10px 0;
+    color:rgba(255,255,255,.65);
+    font-size:14px;
+    transition:.2s ease;
+}
+
+.footer-column a:hover{
+    color:var(--white);
+}
+
+
+/* NEWSLETTER */
+
+.footer-newsletter{
+    max-width:250px;
+}
+
+.footer-newsletter p{
+    color:rgba(255,255,255,.58);
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:13px;
+}
+
+.footer-newsletter-form{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.footer-newsletter-form input{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:6px;
+    background:rgba(255,255,255,.07);
+    color:var(--white);
+    outline:none;
+    font-size:13px;
+}
+
+.footer-newsletter-form input::placeholder{
+    color:rgba(255,255,255,.4);
+}
+
+.footer-newsletter-form button{
+    width:100%;
+    padding:10px 12px;
+    border:0;
+    border-radius:6px;
+    background:var(--blue);
+    color:var(--white);
+    font-size:13px;
+    font-weight:700;
+}
+
+
+/* FOOTER BOTTOM */
+
+.footer-bottom{
+    max-width:1250px;
+    margin:45px auto 0;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.1);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-copy{
+    color:rgba(255,255,255,.45);
+    font-size:13px;
+}
+
+.footer-legal{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.footer-legal a{
+    color:rgba(255,255,255,.5);
+    font-size:13px;
+}
+
+.footer-legal a:hover{
+    color:var(--white);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1150px){
+
+    .footer-grid{
+        grid-template-columns:
+            1.7fr
+            1fr
+            1fr
+            1fr
+            1fr;
+
+        gap:30px;
+    }
+
+    .footer-newsletter{
+        grid-column:span 2;
+        max-width:300px;
+    }
+
+}
+
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-button{
+        display:block;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+        gap:35px;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+        max-width:450px;
+    }
+
+    .footer-newsletter{
+        grid-column:auto;
+        max-width:100%;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    header{
+        padding:18px 5%;
+    }
+
+    .brand-mark{
+        width:43px;
+        height:43px;
+        font-size:24px;
+    }
+
+    .brand-name{
+        font-size:18px;
+    }
+
+    .apply-hero{
+        padding:70px 5% 65px;
+    }
+
+    .apply-hero h1{
+        font-size:45px;
+        letter-spacing:-2px;
+    }
+
+    .apply-hero p{
+        font-size:16px;
+    }
+
+    .application-section{
+        padding:55px 5% 75px;
+    }
+
+    .selected-job{
+        padding:24px;
+    }
+
+    .form-card{
+        padding:24px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .submit-area{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .submit-btn{
+        width:100%;
+    }
+
+    .submit-note{
+        text-align:center;
+    }
+
+    .apply-cta{
+        padding:65px 5%;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:32px;
+    }
+
+    .footer-brand{
+        grid-column:auto;
+    }
+
+    .footer-newsletter{
+        grid-column:auto;
+        max-width:100%;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<nav class="nav">
+
+<a class="brand" href="index.html">
+
+<div class="brand-mark">
+P
+</div>
+
+<div class="brand-text">
+
+<span class="brand-name">
+PrimeCore
+</span>
+
+<span class="brand-sub">
+RESOURCES
+</span>
+
+</div>
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html#home">
+Home
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+<a href="index.html#services">
+Services
+</a>
+
+<a href="jobs.html">
+Jobs
+</a>
+
+<a href="index.html#team">
+Team
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a class="nav-button" href="jobs.html">
+Find Jobs
+</a>
+
+</div>
+
+
+<button
+class="menu-button"
+onclick="toggleMenu()"
+aria-label="Open menu">
+
+☰
+
+</button>
+
+</nav>
+
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html#home">
+Home
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+<a href="index.html#services">
+Services
+</a>
+
+<a href="jobs.html">
+Jobs
+</a>
+
+<a href="index.html#team">
+Team
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="apply-hero">
+
+<div class="apply-hero-content">
+
+<span class="hero-label">
+Join PrimeCore
+</span>
+
+<h1>
+Take the Next Step in Your Career.
+</h1>
+
+<p>
+Submit your application and connect with opportunities that match your skills, experience and career goals.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<section class="application-section">
+
+<div class="application-container">
+
+
+<!-- SUCCESS MESSAGE -->
+
+<div
+class="success-message"
+id="successMessage">
+
+<h3>
+Application Submitted Successfully.
+</h3>
+
+<p>
+Thank you for applying with PrimeCore Resources. Our team will review your application and contact you if your experience matches an available opportunity.
+</p>
+
+</div>
+
+
+<!-- SELECTED JOB -->
+
+<div class="selected-job">
+
+<div class="selected-job-label">
+Applying For
+</div>
+
+<h2 id="selectedJob">
+General Application
+</h2>
+
+<div
+class="selected-job-company"
+id="selectedCompany">
+
+PrimeCore Resources
+
+</div>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="form-card">
+
+<div class="form-heading">
+
+<h2>
+Application Form
+</h2>
+
+<p>
+Please provide accurate information so our recruitment team can review your application.
+</p>
+
+</div>
+
+
+<form
+id="applicationForm"
+action="https://formspree.io/f/moeappyr"
+method="POST"
+onsubmit="handleApplicationSubmit(event)">
+
+<div class="form-grid">
+
+
+<!-- FIRST NAME -->
+
+<div class="form-group">
+
+<label for="firstName">
+First Name <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="firstName"
+name="firstName"
+placeholder="Enter your first name"
+required>
+
+</div>
+
+
+<!-- LAST NAME -->
+
+<div class="form-group">
+
+<label for="lastName">
+Last Name <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="lastName"
+name="lastName"
+placeholder="Enter your last name"
+required>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="form-group">
+
+<label for="email">
+Email Address <span class="required">*</span>
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="you@example.com"
+required>
+
+</div>
+
+
+<!-- PHONE -->
+
+<div class="form-group">
+
+<label for="phone">
+Phone Number <span class="required">*</span>
+</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="+1 000 000 0000"
+required>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="form-group">
+
+<label for="location">
+Current Location <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="location"
+name="location"
+placeholder="City, Country"
+required>
+
+</div>
+
+
+<!-- EXPERIENCE -->
+
+<div class="form-group">
+
+<label for="experience">
+Years of Experience <span class="required">*</span>
+</label>
+
+<select
+id="experience"
+name="experience"
+required>
+
+<option value="">
+Select experience
+</option>
+
+<option value="0-1">
+0 – 1 year
+</option>
+
+<option value="2-3">
+2 – 3 years
+</option>
+
+<option value="4-5">
+4 – 5 years
+</option>
+
+<option value="6-10">
+6 – 10 years
+</option>
+
+<option value="10+">
+10+ years
+</option>
+
+</select>
+
+</div>
+
+
+<!-- JOB TITLE -->
+
+<div class="form-group full">
+
+<label for="position">
+Position Applying For <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="position"
+name="position"
+placeholder="Enter the position you're applying for"
+required>
+
+</div>
+
+
+<!-- LINKEDIN -->
+
+<div class="form-group">
+
+<label for="linkedin">
+LinkedIn Profile
+</label>
+
+<input
+type="url"
+id="linkedin"
+name="linkedin"
+placeholder="https://linkedin.com/in/yourname">
+
+</div>
+
+
+<!-- PORTFOLIO -->
+
+<div class="form-group">
+
+<label for="portfolio">
+Portfolio / Website
+</label>
+
+<input
+type="url"
+id="portfolio"
+name="portfolio"
+placeholder="https://yourwebsite.com">
+
+</div>
+
+
+<!-- RESUME / CV LINK -->
+
+<div class="form-group full">
+
+<label for="resume">
+Resume / CV Link
+</label>
+
+<input
+type="url"
+id="resume"
+name="resume"
+placeholder="https://drive.google.com/your-resume-link">
+
+</div>
+
+</div>
+
+
+<!-- COVER LETTER -->
+
+<div class="form-group full">
+
+<label for="coverLetter">
+Cover Letter
+</label>
+
+<textarea
+id="coverLetter"
+name="coverLetter"
+placeholder="Tell us briefly about yourself, your experience and why you would be a good fit..."></textarea>
+
+</div>
+
+
+<!-- ADDITIONAL INFORMATION -->
+
+<div class="form-group full">
+
+<label for="additional">
+Additional Information
+</label>
+
+<textarea
+id="additional"
+name="additional"
+placeholder="Anything else you'd like our recruitment team to know?"></textarea>
+
+</div>
+
+
+<!-- AGREEMENT -->
+
+<div class="form-group full">
+
+<div class="agreement">
+
+<input
+type="checkbox"
+id="agreement"
+name="agreement"
+required>
+
+<label for="agreement">
+
+I confirm that the information provided in this application is accurate and complete.
+
+</label>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- SUBMIT -->
+
+<div class="submit-area">
+
+<div class="submit-note">
+
+Your information will be reviewed by the PrimeCore Resources recruitment team.
+
+</div>
+
+<button
+type="submit"
+class="submit-btn">
+
+Submit Application
+
+</button>
+
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="apply-cta">
+
+<div class="apply-cta-content">
+
+<h2>
+Looking for more opportunities?
+</h2>
+
+<p>
+Explore our current openings and find a role that matches your experience and career goals.
+</p>
+
+<a
+class="back-btn"
+href="jobs.html">
+
+Browse Open Jobs
+
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<!-- BRAND -->
+
+<div class="footer-brand">
+
+<div class="footer-logo">
+
+<div class="footer-logo-mark">
+P
+</div>
+
+<div class="footer-logo-text">
+
+<strong>
+PrimeCore
+</strong>
+
+<span>
+RESOURCES
+</span>
+
+</div>
+
+</div>
+
+<p>
+Building resources and creating opportunities by connecting talented professionals with organizations that need capable people.
+</p>
+
+</div>
+
+
+<!-- COMPANY -->
+
+<div class="footer-column">
+
+<h4>
+Company
+</h4>
+
+<a href="index.html#about">
+About
+</a>
+
+<a href="index.html#team">
+Our Team
+</a>
+
+<a href="index.html#services">
+Services
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+</div>
+
+
+<!-- QUICK LINKS -->
+
+<div class="footer-column">
+
+<h4>
+Quick Links
+</h4>
+
+<a href="index.html#home">
+Home
+</a>
+
+<a href="index.html#services">
+Our Services
+</a>
+
+<a href="jobs.html">
+Find Jobs
+</a>
+
+<a href="apply.html">
+Submit Your Resume
+</a>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="footer-column contact-column">
+
+<h4>
+Contact
+</h4>
+
+<a href="tel:+12175652081">
+Phone<br>
++1 2175652081
+</a>
+
+<a href="mailto:contact@primecoreresources.com">
+Email<br>
+contact@primecoreresources.com
+</a>
+
+</div>
+
+
+<!-- SUPPORT -->
+
+<div class="footer-column">
+
+<h4>
+Support
+</h4>
+
+<a href="index.html#contact">
+Contact Us
+</a>
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms of Service
+</a>
+
+<a href="#">
+Cookie Policy
+</a>
+
+</div>
+
+
+<!-- STAY UPDATED -->
+
+<div class="footer-newsletter">
+
+<h4>
+Stay Updated
+</h4>
+
+<p>
+Get job alerts and PrimeCore updates.
+</p>
+
+<form
+class="footer-newsletter-form"
+onsubmit="subscribeNewsletter(event)">
+
+<input
+type="email"
+placeholder="Your email"
+required>
+
+<button type="submit">
+Subscribe
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+
+<!-- FOOTER BOTTOM -->
+
+<div class="footer-bottom">
+
+<div class="footer-copy">
+©️ 2026 PrimeCore Resources. All rights reserved.
+</div>
+
+<div class="footer-legal">
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms of Service
+</a>
+
+<a href="#">
+Cookie Policy
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+    .getElementById("mobileMenu")
+    .classList
+    .toggle("active");
+
+}
+
+
+function closeMenu(){
+
+    document
+    .getElementById("mobileMenu")
+    .classList
+    .remove("active");
+
+}
+
+
+/* =====================================================
+   GET SELECTED JOB FROM URL
+===================================================== */
+
+const params =
+new URLSearchParams(window.location.search);
+
+const job =
+params.get("job");
+
+const company =
+params.get("company");
+
+
+if(job){
+
+    document
+    .getElementById("selectedJob")
+    .textContent = job;
+
+    document
+    .getElementById("position")
+    .value = job;
+
+}
+
+
+if(company){
+
+    document
+    .getElementById("selectedCompany")
+    .textContent = company;
+
+}
+
+
+/* =====================================================
+   APPLICATION SUBMISSION
+===================================================== */
+
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+function subscribeNewsletter(e){
+
+    e.preventDefault();
+
+    alert(
+        "Thank you for subscribing to PrimeCore Resources!"
+    );
+
+    e.target.reset();
+
+}
+
+function handleApplicationSubmit(e){
+
+    e.preventDefault();
+
+    const form = document.getElementById("applicationForm");
+    const submitButton = form.querySelector(".submit-btn");
+    const successMessage = document.getElementById("successMessage");
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error("Submission failed");
+        }
+
+        form.style.display = "none";
+
+        successMessage.style.display = "block";
+        successMessage.classList.add("active");
+
+        window.scrollTo({
+            top: successMessage.offsetTop - 100,
+            behavior: "smooth"
+        });
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Application";
+
+        alert("Something went wrong. Please try again.");
+
+    });
+
+}
+</script>
+
+</body>
+</html>
