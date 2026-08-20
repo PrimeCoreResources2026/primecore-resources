@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Open Roles | PrimeCore Resources</title>
+
+<style>
+
+:root{
+    --navy:#0b1830;
+    --blue:#2f5bea;
+    --light-blue:#dce7ff;
+    --white:#ffffff;
+    --text:#182235;
+    --muted:#667085;
+    --border:#e3e8f0;
+    --soft:#f5f7fb;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    background:var(--navy);
+    width:100%;
+    padding:22px 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-mark{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:var(--blue);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    font-weight:800;
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+
+.brand-name{
+    color:var(--white);
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:-.4px;
+}
+
+.brand-sub{
+    color:rgba(255,255,255,.72);
+    font-size:10px;
+    letter-spacing:3px;
+    margin-top:5px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:var(--white);
+    font-size:14px;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.nav-links a:hover{
+    color:var(--light-blue);
+}
+
+.nav-button{
+    background:var(--white);
+    color:var(--navy)!important;
+    padding:11px 20px;
+    border-radius:30px;
+}
+
+.menu-button{
+    display:none;
+    border:0;
+    background:none;
+    color:var(--white);
+    font-size:30px;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu{
+    display:none;
+    position:absolute;
+    top:82px;
+    left:5%;
+    right:5%;
+    background:var(--white);
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.mobile-menu.active{
+    display:block;
+}
+
+.mobile-menu a{
+    display:block;
+    color:var(--navy);
+    padding:13px 10px;
+    font-weight:600;
+    border-bottom:1px solid var(--border);
+}
+
+
+/* =====================================================
+   JOB HERO
+===================================================== */
+
+.jobs-hero{
+    background:var(--navy);
+    color:var(--white);
+    padding:95px 5% 90px;
+    position:relative;
+    overflow:hidden;
+}
+
+.jobs-hero:before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(47,91,234,.12);
+    right:-200px;
+    top:-280px;
+}
+
+.jobs-hero:after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(220,231,255,.05);
+    left:-170px;
+    bottom:-200px;
+}
+
+.jobs-hero-content{
+    max-width:1250px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-block;
+    padding:8px 17px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:30px;
+    color:var(--white);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:22px;
+}
+
+.jobs-hero h1{
+    max-width:800px;
+    font-size:clamp(45px,6vw,72px);
+    line-height:1.03;
+    letter-spacing:-2.8px;
+    margin-bottom:20px;
+}
+
+.jobs-hero p{
+    max-width:700px;
+    color:rgba(255,255,255,.78);
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box{
+    width:100%;
+    max-width:850px;
+    min-height:64px;
+    background:var(--white);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+}
+
+.search-icon{
+    color:var(--muted);
+    font-size:25px;
+    margin-right:13px;
+}
+
+.search-box input{
+    width:100%;
+    border:0;
+    outline:0;
+    color:var(--text);
+    background:transparent;
+    font-size:16px;
+}
+
+.search-box input::placeholder{
+    color:#98a2b3;
+}
+
+
+/* =====================================================
+   FILTER SECTION
+===================================================== */
+
+.filters-section{
+    background:var(--soft);
+    padding:45px 5%;
+    border-bottom:1px solid var(--border);
+}
+
+.filters-container{
+    max-width:1250px;
+    margin:auto;
+}
+
+.filter-heading{
+    color:var(--navy);
+    font-size:14px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.category{
+    border:1px solid var(--border);
+    background:var(--white);
+    color:var(--text);
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    transition:.2s ease;
+}
+
+.category:hover{
+    border-color:var(--blue);
+    color:var(--blue);
+}
+
+.category.active{
+    background:var(--blue);
+    border-color:var(--blue);
+    color:var(--white);
+}
+
+.dropdowns{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.filter-select{
+    min-width:200px;
+    padding:13px 16px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--white);
+    color:var(--text);
+    outline:none;
+    cursor:pointer;
+}
+
+.filter-select:focus{
+    border-color:var(--blue);
+}
+
+
+/* =====================================================
+   JOBS
+===================================================== */
+
+.jobs-section{
+    background:var(--white);
+    padding:80px 5% 100px;
+}
+
+.jobs-container{
+    max-width:950px;
+    margin:auto;
+}
+
+.results{
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:25px;
+}
+
+.results strong{
+    color:var(--navy);
+}
+
+.job-list{
+    display:grid;
+    gap:20px;
+}
+
+.job-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:30px;
+    transition:.25s ease;
+}
+
+.job-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 40px rgba(11,24,48,.08);
+    border-color:#c7d5f5;
+}
+
+.job-top{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    padding:7px 13px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.full-time{
+    background:var(--light-blue);
+    color:var(--blue);
+}
+
+.part-time{
+    background:#e8f7ef;
+    color:#16794a;
+}
+
+.contract{
+    background:#eee8ff;
+    color:#7047bd;
+}
+
+.featured{
+    background:#fff1cc;
+    color:#a66300;
+}
+
+.job-card h2{
+    color:var(--navy);
+    font-size:25px;
+    line-height:1.25;
+    letter-spacing:-.5px;
+    margin-bottom:6px;
+}
+
+.company{
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:22px;
+}
+
+.job-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    color:var(--muted);
+    font-size:14px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--border);
+    margin-bottom:20px;
+}
+
+.job-details span{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-bottom:25px;
+}
+
+.skill{
+    background:var(--soft);
+    color:var(--muted);
+    border:1px solid var(--border);
+    padding:7px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.apply-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:12px 24px;
+    border:0;
+    border-radius:30px;
+    background:var(--blue);
+    color:var(--white);
+    font-size:14px;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+.apply-btn:hover{
+    transform:translateY(-2px);
+    background:#244bc8;
+}
+
+.no-results{
+    background:var(--soft);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:60px 25px;
+    text-align:center;
+}
+
+.no-results h2{
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.no-results p{
+    color:var(--muted);
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.jobs-cta{
+    background:var(--blue);
+    color:var(--white);
+    text-align:center;
+    padding:80px 5%;
+    position:relative;
+    overflow:hidden;
+}
+
+.jobs-cta:before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    right:-200px;
+    top:-300px;
+}
+
+.jobs-cta-content{
+    max-width:700px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.jobs-cta h2{
+    font-size:clamp(32px,5vw,48px);
+    line-height:1.1;
+    letter-spacing:-1.5px;
+    margin-bottom:16px;
+}
+
+.jobs-cta p{
+    color:rgba(255,255,255,.8);
+    margin-bottom:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    padding:13px 25px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s ease;
+    margin:4px;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-white{
+    background:var(--white);
+    color:var(--blue);
+}
+
+.btn-outline{
+    border:1.5px solid var(--white);
+    color:var(--white);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:var(--navy);
+    color:var(--white);
+    padding:70px 5% 25px;
+}
+
+.footer-grid{
+    max-width:1250px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.8fr
+        1fr
+        1fr
+        1.15fr
+        1.15fr
+        1.3fr;
+
+    gap:40px;
+
+    align-items:start;
+}
+
+.footer-brand{
+    max-width:330px;
+}
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.footer-logo-mark{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:var(--blue);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    font-weight:800;
+}
+
+.footer-logo-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+
+.footer-logo-text strong{
+    font-size:21px;
+    font-weight:800;
+    color:var(--white);
+    letter-spacing:-.4px;
+}
+
+.footer-logo-text span{
+    margin-top:5px;
+    font-size:10px;
+    letter-spacing:3px;
+    color:var(--light-blue);
+}
+
+.footer-brand p{
+    color:rgba(255,255,255,.62);
+    font-size:14px;
+    line-height:1.7;
+    max-width:320px;
+}
+
+.footer-column h4,
+.footer-newsletter h4{
+    margin-bottom:17px;
+    color:var(--light-blue);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.footer-column a{
+    display:block;
+    margin:10px 0;
+    color:rgba(255,255,255,.65);
+    font-size:14px;
+    transition:.2s ease;
+}
+
+.footer-column a:hover{
+    color:var(--white);
+}
+
+.footer-column.contact-column a{
+    line-height:1.5;
+}
+
+.footer-newsletter{
+    max-width:250px;
+}
+
+.footer-newsletter p{
+    color:rgba(255,255,255,.58);
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:13px;
+}
+
+.footer-newsletter-form{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.footer-newsletter-form input{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:6px;
+    background:rgba(255,255,255,.07);
+    color:var(--white);
+    outline:none;
+    font-size:13px;
+}
+
+.footer-newsletter-form input::placeholder{
+    color:rgba(255,255,255,.4);
+}
+
+.footer-newsletter-form button{
+    width:100%;
+    padding:10px 12px;
+    border:0;
+    border-radius:6px;
+    background:var(--blue);
+    color:var(--white);
+    font-size:13px;
+    font-weight:700;
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:45px auto 0;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.1);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-copy{
+    color:rgba(255,255,255,.45);
+    font-size:13px;
+}
+
+.footer-legal{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.footer-legal a{
+    color:rgba(255,255,255,.5);
+    font-size:13px;
+}
+
+.footer-legal a:hover{
+    color:var(--white);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1150px){
+
+    .footer-grid{
+        grid-template-columns:
+            1.7fr
+            1fr
+            1fr
+            1fr
+            1fr;
+
+        gap:30px;
+    }
+
+    .footer-newsletter{
+        grid-column:span 2;
+        max-width:300px;
+    }
+}
+
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-button{
+        display:block;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+        gap:35px;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+        max-width:450px;
+    }
+
+    .footer-newsletter{
+        grid-column:auto;
+        max-width:100%;
+    }
+}
+
+
+@media(max-width:650px){
+
+    header{
+        padding:18px 5%;
+    }
+
+    .brand-mark{
+        width:43px;
+        height:43px;
+        font-size:24px;
+    }
+
+    .brand-name{
+        font-size:18px;
+    }
+
+    .jobs-hero{
+        padding:75px 5% 70px;
+    }
+
+    .jobs-hero h1{
+        font-size:47px;
+        letter-spacing:-2px;
+    }
+
+    .jobs-hero p{
+        font-size:16px;
+    }
+
+    .search-box{
+        min-height:60px;
+    }
+
+    .filters-section{
+        padding:35px 5%;
+    }
+
+    .categories{
+        gap:8px;
+    }
+
+    .category{
+        padding:9px 14px;
+        font-size:13px;
+    }
+
+    .dropdowns{
+        flex-direction:column;
+    }
+
+    .filter-select{
+        width:100%;
+    }
+
+    .jobs-section{
+        padding:60px 5% 80px;
+    }
+
+    .job-card{
+        padding:24px;
+    }
+
+    .job-card h2{
+        font-size:23px;
+    }
+
+    .job-details{
+        flex-direction:column;
+        gap:9px;
+    }
+
+    .apply-btn{
+        width:100%;
+    }
+
+    .jobs-cta{
+        padding:70px 5%;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:32px;
+    }
+
+    .footer-brand{
+        grid-column:auto;
+    }
+
+    .footer-newsletter{
+        grid-column:auto;
+        max-width:100%;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<nav class="nav">
+
+<a class="brand" href="index.html">
+
+<div class="brand-mark">
+P
+</div>
+
+<div class="brand-text">
+
+<span class="brand-name">
+PrimeCore
+</span>
+
+<span class="brand-sub">
+RESOURCES
+</span>
+
+</div>
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html#home">
+Home
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+<a href="index.html#services">
+Services
+</a>
+
+<a href="jobs.html">
+Jobs
+</a>
+
+<a href="index.html#team">
+Team
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a class="nav-button" href="jobs.html">
+Find Jobs
+</a>
+
+</div>
+
+
+<button
+class="menu-button"
+onclick="toggleMenu()"
+aria-label="Open menu">
+
+☰
+
+</button>
+
+</nav>
+
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html#home">
+Home
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+<a href="index.html#services">
+Services
+</a>
+
+<a href="jobs.html">
+Jobs
+</a>
+
+<a href="index.html#team">
+Team
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section class="jobs-hero">
+
+<div class="jobs-hero-content">
+
+<span class="hero-label">
+Career Opportunities
+</span>
+
+<h1>
+Find Your Next Opportunity.
+</h1>
+
+<p>
+Explore current openings and discover opportunities that match your skills, experience and career goals.
+</p>
+
+
+<div class="search-box">
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by title, company, or skill..."
+>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="filters-section">
+
+<div class="filters-container">
+
+<div class="filter-heading">
+Browse Opportunities
+</div>
+
+
+<div class="categories">
+
+<button class="category active" data-category="All">
+All
+</button>
+
+<button class="category" data-category="Engineering">
+Engineering
+</button>
+
+<button class="category" data-category="Finance">
+Finance
+</button>
+
+<button class="category" data-category="Healthcare">
+Healthcare
+</button>
+
+<button class="category" data-category="Human Resources">
+Human Resources
+</button>
+
+<button class="category" data-category="Marketing">
+Marketing
+</button>
+
+<button class="category" data-category="Operations">
+Operations
+</button>
+
+<button class="category" data-category="Sales">
+Sales
+</button>
+
+<button class="category" data-category="Technology">
+Technology
+</button>
+
+</div>
+
+
+<div class="dropdowns">
+
+<select id="typeFilter" class="filter-select">
+
+<option value="All">
+Type: All
+</option>
+
+<option value="Full-time">
+Full-time
+</option>
+
+<option value="Part-time">
+Part-time
+</option>
+
+<option value="Contract">
+Contract
+</option>
+
+</select>
+
+
+<select id="locationFilter" class="filter-select">
+
+<option value="All">
+Location: All
+</option>
+
+<option value="Remote">
+Remote
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="jobs-section">
+
+<div class="jobs-container">
+
+<div class="results">
+
+Showing
+<strong id="resultCount">
+50
+</strong>
+opportunities
+
+</div>
+
+
+<div id="jobList" class="job-list"></div>
+
+</div>
+
+</section>
+
+
+<section class="jobs-cta">
+
+<div class="jobs-cta-content">
+
+<h2>
+Don't see the right role?
+</h2>
+
+<p>
+Submit your resume and let PrimeCore Resources know you're interested in future opportunities.
+</p>
+
+<a class="btn btn-white" href="apply.html">
+Submit Your Resume
+</a>
+
+<a class="btn btn-outline" href="index.html#contact">
+Talk With Us
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<div class="footer-logo">
+
+<div class="footer-logo-mark">
+P
+</div>
+
+<div class="footer-logo-text">
+
+<strong>
+PrimeCore
+</strong>
+
+<span>
+RESOURCES
+</span>
+
+</div>
+
+</div>
+
+<p>
+Building resources and creating opportunities by connecting talented professionals with organizations that need capable people.
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Company
+</h4>
+
+<a href="index.html#about">
+About
+</a>
+
+<a href="index.html#team">
+Our Team
+</a>
+
+<a href="index.html#services">
+Services
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Quick Links
+</h4>
+
+<a href="index.html#home">
+Home
+</a>
+
+<a href="index.html#services">
+Our Services
+</a>
+
+<a href="job.html">
+Find Jobs
+</a>
+
+<a href="apply.html">
+Submit Your Resume
+</a>
+
+</div>
+
+
+<div class="footer-column contact-column">
+
+<h4>
+Contact
+</h4>
+
+<a href="tel:+12175652081">
+Phone<br>
++1 2175652081
+</a>
+
+<a href="mailto:contact@primecoreresources.com">
+Email<br>
+contact@primecoreresources.com
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Support
+</h4>
+
+<a href="index.html#contact">
+Contact Us
+</a>
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms of Service
+</a>
+
+<a href="#">
+Cookie Policy
+</a>
+
+</div>
+
+
+<div class="footer-newsletter">
+
+<h4>
+Stay Updated
+</h4>
+
+<p>
+Get job alerts and PrimeCore updates.
+</p>
+
+<form
+class="footer-newsletter-form"
+onsubmit="subscribeNewsletter(event)">
+
+<input
+type="email"
+placeholder="Your email"
+required>
+
+<button type="submit">
+Subscribe
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<div class="footer-copy">
+©️ 2026 PrimeCore Resources. All rights reserved.
+</div>
+
+<div class="footer-legal">
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms of Service
+</a>
+
+<a href="#">
+Cookie Policy
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const jobs = [
+
+{
+title:"Frontend Developer",
+company:"Nexlify Corp",
+category:"Engineering",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"2 days ago",
+skills:["React","JavaScript","CSS","API"]
+},
+
+{
+title:"Backend Developer",
+company:"CloudAxis",
+category:"Engineering",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $60/hr",
+posted:"1 day ago",
+skills:["Node.js","Python","API","SQL"]
+},
+
+{
+title:"Full Stack Developer",
+company:"Vertex Labs",
+category:"Engineering",
+type:"Contract",
+location:"Remote",
+pay:"$45 – $70/hr",
+posted:"3 days ago",
+skills:["React","Node.js","MongoDB","Git"]
+},
+
+{
+title:"Software Engineer",
+company:"Nova Systems",
+category:"Engineering",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $75/hr",
+posted:"4 days ago",
+skills:["Python","Java","AWS","SQL"]
+},
+
+{
+title:"DevOps Engineer",
+company:"CloudBridge",
+category:"Engineering",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $70/hr",
+posted:"5 days ago",
+skills:["Docker","AWS","Linux","CI/CD"]
+},
+
+{
+title:"QA Automation Engineer",
+company:"BrightCode",
+category:"Engineering",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $55/hr",
+posted:"6 days ago",
+skills:["Selenium","Python","Testing","API"]
+},
+
+{
+title:"UI Engineer",
+company:"PixelWorks",
+category:"Engineering",
+type:"Part-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"1 week ago",
+skills:["HTML","CSS","React","Figma"]
+},
+
+{
+title:"Data Engineer",
+company:"DataForge",
+category:"Engineering",
+type:"Full-time",
+location:"Remote",
+pay:"$42 – $65/hr",
+posted:"2 days ago",
+skills:["Python","SQL","ETL","AWS"]
+},
+
+{
+title:"Financial Analyst",
+company:"Summit Capital Group",
+category:"Finance",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"3 days ago",
+skills:["Excel","Forecasting","Analysis","Finance"]
+},
+
+{
+title:"Senior Financial Analyst",
+company:"Northstar Finance",
+category:"Finance",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $65/hr",
+posted:"4 days ago",
+skills:["Excel","Modeling","Forecasting","Power BI"]
+},
+
+{
+title:"Accounts Payable Specialist",
+company:"BluePeak Holdings",
+category:"Finance",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $48/hr",
+posted:"5 days ago",
+skills:["QuickBooks","Excel","Accounting","Invoices"]
+},
+
+{
+title:"Payroll Specialist",
+company:"ClearLedger",
+category:"Finance",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"1 day ago",
+skills:["Payroll","Excel","Accounting","HR"]
+},
+
+{
+title:"Investment Research Associate",
+company:"Atlas Investments",
+category:"Finance",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $55/hr",
+posted:"2 days ago",
+skills:["Research","Finance","Excel","Markets"]
+},
+
+{
+title:"Budget Analyst",
+company:"Evergreen Partners",
+category:"Finance",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"6 days ago",
+skills:["Budgeting","Excel","Analysis","Finance"]
+},
+
+{
+title:"Revenue Accountant",
+company:"PrimeLedger",
+category:"Finance",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $52/hr",
+posted:"3 days ago",
+skills:["Accounting","Excel","Revenue","Reporting"]
+},
+
+{
+title:"Healthcare Coordinator",
+company:"CarePoint Health",
+category:"Healthcare",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $48/hr",
+posted:"2 days ago",
+skills:["Healthcare","Scheduling","Communication","CRM"]
+},
+
+{
+title:"Medical Billing Specialist",
+company:"HealthBridge",
+category:"Healthcare",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"4 days ago",
+skills:["Medical Billing","Claims","Healthcare","Excel"]
+},
+
+{
+title:"Patient Support Specialist",
+company:"WellCare Network",
+category:"Healthcare",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"5 days ago",
+skills:["Customer Care","Healthcare","Support","CRM"]
+},
+
+{
+title:"Clinical Data Coordinator",
+company:"MedCore",
+category:"Healthcare",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $52/hr",
+posted:"1 week ago",
+skills:["Data","Healthcare","Excel","Research"]
+},
+
+{
+title:"Healthcare Operations Analyst",
+company:"VitalPath",
+category:"Healthcare",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $58/hr",
+posted:"3 days ago",
+skills:["Operations","Healthcare","Analysis","Reporting"]
+},
+
+{
+title:"Recruitment Specialist",
+company:"TalentBridge",
+category:"Human Resources",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"1 day ago",
+skills:["Recruiting","LinkedIn","ATS","Interviewing"]
+},
+
+{
+title:"Talent Acquisition Partner",
+company:"PeopleFirst",
+category:"Human Resources",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $60/hr",
+posted:"2 days ago",
+skills:["Recruiting","Talent","HR","Interviewing"]
+},
+
+{
+title:"HR Coordinator",
+company:"WorkSphere",
+category:"Human Resources",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"4 days ago",
+skills:["HR","Scheduling","Onboarding","Excel"]
+},
+
+{
+title:"People Operations Manager",
+company:"CorePeople",
+category:"Human Resources",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $65/hr",
+posted:"5 days ago",
+skills:["HR","Operations","Leadership","People"]
+},
+
+{
+title:"HR Assistant",
+company:"WorkNest",
+category:"Human Resources",
+type:"Contract",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"6 days ago",
+skills:["HR","Administration","Excel","Communication"]
+},
+
+{
+title:"Employee Relations Specialist",
+company:"PeopleWorks",
+category:"Human Resources",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $52/hr",
+posted:"1 week ago",
+skills:["HR","Employee Relations","Communication","Policy"]
+},
+
+{
+title:"Digital Marketing Specialist",
+company:"GrowthWave",
+category:"Marketing",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"1 day ago",
+skills:["SEO","Google Ads","Analytics","Content"]
+},
+
+{
+title:"Social Media Manager",
+company:"BrandSphere",
+category:"Marketing",
+type:"Full-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"2 days ago",
+skills:["Social Media","Content","Instagram","TikTok"]
+},
+
+{
+title:"Content Strategist",
+company:"StoryLab",
+category:"Marketing",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"3 days ago",
+skills:["Content","Strategy","SEO","Research"]
+},
+
+{
+title:"SEO Specialist",
+company:"SearchPoint",
+category:"Marketing",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"4 days ago",
+skills:["SEO","Google","Analytics","Content"]
+},
+
+{
+title:"Email Marketing Specialist",
+company:"InboxGrowth",
+category:"Marketing",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"5 days ago",
+skills:["Email","CRM","Marketing","Analytics"]
+},
+
+{
+title:"Brand Marketing Manager",
+company:"Elevate Brands",
+category:"Marketing",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $65/hr",
+posted:"1 week ago",
+skills:["Branding","Marketing","Strategy","Campaigns"]
+},
+
+{
+title:"Operations Coordinator",
+company:"Prime Operations",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $48/hr",
+posted:"2 days ago",
+skills:["Operations","Excel","Scheduling","Communication"]
+},
+
+{
+title:"Operations Manager",
+company:"Axis Group",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $65/hr",
+posted:"3 days ago",
+skills:["Operations","Leadership","Management","Strategy"]
+},
+
+{
+title:"Project Coordinator",
+company:"ProjectFlow",
+category:"Operations",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"4 days ago",
+skills:["Project Management","Asana","Communication","Planning"]
+},
+
+{
+title:"Project Manager",
+company:"PrimeCore Projects",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"1 day ago",
+skills:["Project Management","Leadership","Planning","Asana"]
+},
+
+{
+title:"Administrative Coordinator",
+company:"OfficeCore",
+category:"Operations",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"5 days ago",
+skills:["Administration","Scheduling","Excel","Email"]
+},
+
+{
+title:"Business Operations Analyst",
+company:"BusinessCore",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $55/hr",
+posted:"6 days ago",
+skills:["Analysis","Excel","Operations","Reporting"]
+},
+
+{
+title:"Executive Operations Assistant",
+company:"ExecutiveHub",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"1 week ago",
+skills:["Executive Support","Scheduling","Communication","Travel"]
+},
+
+{
+title:"Sales Development Representative",
+company:"SalesCore",
+category:"Sales",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $48/hr",
+posted:"1 day ago",
+skills:["Sales","CRM","Lead Generation","Communication"]
+},
+
+{
+title:"Account Executive",
+company:"GrowthPoint",
+category:"Sales",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $60/hr",
+posted:"2 days ago",
+skills:["Sales","CRM","Negotiation","B2B"]
+},
+
+{
+title:"Business Development Representative",
+company:"MarketBridge",
+category:"Sales",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $50/hr",
+posted:"3 days ago",
+skills:["Sales","B2B","Prospecting","CRM"]
+},
+
+{
+title:"Customer Sales Specialist",
+company:"ConnectPlus",
+category:"Sales",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"5 days ago",
+skills:["Sales","Customer Service","CRM","Communication"]
+},
+
+{
+title:"Regional Sales Manager",
+company:"Summit Growth",
+category:"Sales",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $65/hr",
+posted:"6 days ago",
+skills:["Sales","Leadership","Strategy","CRM"]
+},
+
+{
+title:"Technical Sales Specialist",
+company:"TechSales Group",
+category:"Sales",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $58/hr",
+posted:"1 week ago",
+skills:["Technology","Sales","CRM","B2B"]
+},
+
+{
+title:"IT Support Specialist",
+company:"TechAssist",
+category:"Technology",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $48/hr",
+posted:"1 day ago",
+skills:["IT Support","Windows","Networking","Help Desk"]
+},
+
+{
+title:"Cybersecurity Analyst",
+company:"SecureCore",
+category:"Technology",
+type:"Full-time",
+location:"Remote",
+pay:"$45 – $65/hr",
+posted:"2 days ago",
+skills:["Cybersecurity","SIEM","Linux","Networking"]
+},
+
+{
+title:"Cloud Support Engineer",
+company:"CloudWorks",
+category:"Technology",
+type:"Contract",
+location:"Remote",
+pay:"$40 – $58/hr",
+posted:"3 days ago",
+skills:["AWS","Cloud","Linux","Networking"]
+},
+
+{
+title:"Technical Support Specialist",
+company:"HelpTech",
+category:"Technology",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"4 days ago",
+skills:["Technical Support","CRM","Troubleshooting","Windows"]
+},
+
+{
+title:"Systems Administrator",
+company:"CoreSystems",
+category:"Technology",
+type:"Full-time",
+location:"Remote",
+pay:"$40 – $58/hr",
+posted:"5 days ago",
+skills:["Linux","Windows","Networking","Servers"]
+},
+
+{
+title:"Data Analyst",
+company:"InsightWorks",
+category:"Technology",
+type:"Full-time",
+location:"Remote",
+pay:"$35 – $52/hr",
+posted:"6 days ago",
+skills:["Excel","SQL","Power BI","Analytics"]
+},
+
+{
+title:"Product Support Analyst",
+company:"ProductHub",
+category:"Technology",
+type:"Contract",
+location:"Remote",
+pay:"$35 – $48/hr",
+posted:"1 week ago",
+skills:["Support","Product","CRM","Analytics"]
+},
+
+{
+title:"Customer Service Representative",
+company:"PrimeCore Support",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"1 day ago",
+skills:["Customer Service","Communication","CRM","Support"]
+},
+
+{
+title:"Virtual Assistant",
+company:"RemoteAssist",
+category:"Operations",
+type:"Full-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"2 days ago",
+skills:["Administration","Scheduling","Email","Microsoft Office"]
+},
+
+{
+title:"Data Entry Clerk",
+company:"DataWorks",
+category:"Operations",
+type:"Part-time",
+location:"Remote",
+pay:"$30 – $45/hr",
+posted:"3 days ago",
+skills:["Data Entry","Excel","Typing","Accuracy"]
+}
+
+];
+
+
+let selectedCategory = "All";
+
+const jobList =
+document.getElementById("jobList");
+
+const resultCount =
+document.getElementById("resultCount");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const typeFilter =
+document.getElementById("typeFilter");
+
+const locationFilter =
+document.getElementById("locationFilter");
+
+
+function displayJobs(){
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    const type =
+        typeFilter.value;
+
+    const location =
+        locationFilter.value;
+
+
+    const filteredJobs =
+        jobs.filter(job => {
+
+            const categoryMatch =
+                selectedCategory === "All" ||
+                job.category === selectedCategory;
+
+
+            const typeMatch =
+                type === "All" ||
+                job.type === type;
+
+
+            const locationMatch =
+                location === "All" ||
+                job.location === location;
+
+
+            const searchMatch =
+                job.title
+                .toLowerCase()
+                .includes(search) ||
+
+                job.company
+                .toLowerCase()
+                .includes(search) ||
+
+                job.skills
+                .join(" ")
+                .toLowerCase()
+                .includes(search);
+
+
+            return categoryMatch &&
+                   typeMatch &&
+                   locationMatch &&
+                   searchMatch;
+
+        });
+
+
+    resultCount.textContent =
+        filteredJobs.length;
+
+
+    if(filteredJobs.length === 0){
+
+        jobList.innerHTML = `
+
+            <div class="no-results">
+
+                <h2>
+                    No roles found
+                </h2>
+
+                <p>
+                    Try another search or change your filters.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    jobList.innerHTML =
+        filteredJobs.map((job,index) => {
+
+            let typeClass = "";
+
+            if(job.type === "Full-time"){
+                typeClass = "full-time";
+            }
+
+            if(job.type === "Part-time"){
+                typeClass = "part-time";
+            }
+
+            if(job.type === "Contract"){
+                typeClass = "contract";
+            }
+
+
+            return `
+
+                <article class="job-card">
+
+                    <div class="job-top">
+
+                        <span class="badge ${typeClass}">
+                            ${job.type}
+                        </span>
+
+                        ${
+                            index < 3
+                            ?
+                            `
+                            <span class="badge featured">
+                                Featured
+                            </span>
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+
+                    <h2>
+                        ${job.title}
+                    </h2>
+
+
+                    <div class="company">
+                        ${job.company}
+                    </div>
+
+
+                    <div class="job-details">
+
+                        <span>
+                            📍 ${job.location}
+                        </span>
+
+                        <span>
+                            💲 ${job.pay}
+                        </span>
+
+                        <span>
+                            ◷ ${job.posted}
+                        </span>
+
+                    </div>
+
+
+                    <div class="skills">
+
+                        ${
+                            job.skills
+                            .map(skill => `
+                                <span class="skill">
+                                    ${skill}
+                                </span>
+                            `)
+                            .join("")
+                        }
+
+                    </div>
+
+
+                    <button
+                        class="apply-btn"
+                        onclick="applyForJob(
+                            '${job.title.replace(/'/g,"\\'")}',
+                            '${job.company.replace(/'/g,"\\'")}'
+                        )">
+
+                        Apply Now
+
+                    </button>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+}
+
+
+function applyForJob(title,company){
+
+    window.location.href =
+        "apply.html?job=" +
+        encodeURIComponent(title) +
+        "&company=" +
+        encodeURIComponent(company);
+
+}
+
+
+document
+.querySelectorAll(".category")
+.forEach(button => {
+
+    button.addEventListener("click",() => {
+
+        document
+        .querySelectorAll(".category")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+
+        button.classList.add("active");
+
+
+        selectedCategory =
+            button.dataset.category;
+
+
+        displayJobs();
+
+    });
+
+});
+
+
+searchInput
+.addEventListener("input",displayJobs);
+
+typeFilter
+.addEventListener("change",displayJobs);
+
+locationFilter
+.addEventListener("change",displayJobs);
+
+
+function toggleMenu(){
+
+    document
+    .getElementById("mobileMenu")
+    .classList
+    .toggle("active");
+
+}
+
+
+function closeMenu(){
+
+    document
+    .getElementById("mobileMenu")
+    .classList
+    .remove("active");
+
+}
+
+
+function subscribeNewsletter(e){
+
+    e.preventDefault();
+
+    alert(
+        "Thank you for subscribing to PrimeCore Resources!"
+    );
+
+    e.target.reset();
+
+}
+
+
+displayJobs();
+
+</script>
+
+</body>
+</html>
