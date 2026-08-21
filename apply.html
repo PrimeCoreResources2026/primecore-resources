@@ -399,45 +399,107 @@ header{
 
 
 /* =====================================================
-   RESUME UPLOAD
+   RESUME / CV UPLOAD
 ===================================================== */
 
+.resume-upload-wrapper{
+    grid-column:1/-1;
+}
+
+.resume-label{
+    display:block;
+    color:var(--navy);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
 .upload-box{
-    border:1.5px dashed #cbd5e1;
-    border-radius:12px;
-    padding:25px;
+    position:relative;
+    border:2px dashed #d8e0ed;
+    border-radius:18px;
+    padding:45px 25px;
+    min-height:280px;
     text-align:center;
-    background:var(--soft);
-    transition:.2s ease;
+    background:#f8faff;
+    transition:.25s ease;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
 }
 
 .upload-box:hover{
     border-color:var(--blue);
+    background:#f5f8ff;
+}
+
+.upload-box.dragover{
+    border-color:var(--blue);
+    background:#edf3ff;
+    transform:scale(1.01);
+}
+
+.upload-box input[type="file"]{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
 }
 
 .upload-icon{
-    font-size:30px;
-    margin-bottom:8px;
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:#eef2f8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
 }
 
-.upload-box strong{
-    display:block;
-    color:var(--navy);
+.upload-icon svg{
+    width:34px;
+    height:34px;
+    stroke:#98a8c1;
+}
+
+.upload-title{
+    color:#111b31;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.upload-browse{
+    color:var(--blue);
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.upload-info{
+    color:#94a3bd;
     font-size:14px;
-    margin-bottom:4px;
 }
 
-.upload-box span{
-    display:block;
-    color:var(--muted);
-    font-size:12px;
-    margin-bottom:15px;
-}
-
-.upload-box input{
-    width:100%;
+.selected-file{
+    display:none;
+    margin-top:15px;
+    padding:10px 15px;
+    background:#eaf1ff;
+    border-radius:10px;
+    color:var(--blue);
     font-size:13px;
-    color:var(--muted);
+    font-weight:700;
+    max-width:100%;
+    word-break:break-word;
+}
+
+.selected-file.active{
+    display:block;
 }
 
 
@@ -506,6 +568,12 @@ header{
     transform:translateY(-2px);
     background:#244bc8;
     box-shadow:0 10px 25px rgba(47,91,234,.2);
+}
+
+.submit-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+    transform:none;
 }
 
 
@@ -792,6 +860,172 @@ footer{
 
 
 /* =====================================================
+   FLOATING CUSTOMER CHAT
+===================================================== */
+
+.chat-widget{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:5000;
+}
+
+.chat-button{
+    width:64px;
+    height:64px;
+    border:none;
+    border-radius:50%;
+    background:var(--blue);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 25px rgba(47,91,234,.35);
+    transition:.25s ease;
+}
+
+.chat-button:hover{
+    transform:translateY(-3px) scale(1.04);
+    box-shadow:0 12px 30px rgba(47,91,234,.45);
+}
+
+.chat-button svg{
+    width:31px;
+    height:31px;
+    stroke:white;
+}
+
+.chat-window{
+    position:absolute;
+    right:0;
+    bottom:78px;
+    width:330px;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 18px 50px rgba(11,24,48,.22);
+    border:1px solid var(--border);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(15px) scale(.96);
+    transform-origin:bottom right;
+    transition:.25s ease;
+}
+
+.chat-window.active{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+.chat-header{
+    background:var(--blue);
+    color:white;
+    padding:17px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.chat-header-info{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.chat-avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:white;
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+}
+
+.chat-header-text strong{
+    display:block;
+    font-size:14px;
+}
+
+.chat-header-text span{
+    display:block;
+    font-size:11px;
+    opacity:.8;
+}
+
+.chat-close{
+    border:0;
+    background:transparent;
+    color:white;
+    font-size:24px;
+    line-height:1;
+}
+
+.chat-body{
+    padding:18px;
+    background:#f7f9fc;
+    min-height:160px;
+}
+
+.chat-message{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:12px 14px;
+    color:var(--text);
+    font-size:13px;
+    line-height:1.5;
+    box-shadow:0 3px 10px rgba(11,24,48,.04);
+}
+
+.chat-message strong{
+    color:var(--navy);
+}
+
+.chat-footer{
+    padding:12px;
+    background:white;
+    border-top:1px solid var(--border);
+    display:flex;
+    gap:8px;
+}
+
+.chat-footer input{
+    flex:1;
+    min-width:0;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:9px 12px;
+    outline:none;
+    font-size:12px;
+}
+
+.chat-footer input:focus{
+    border-color:var(--blue);
+}
+
+.chat-send{
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:var(--blue);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.chat-send svg{
+    width:18px;
+    height:18px;
+}
+
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
@@ -894,6 +1128,15 @@ footer{
         grid-column:auto;
     }
 
+    .resume-upload-wrapper{
+        grid-column:auto;
+    }
+
+    .upload-box{
+        min-height:260px;
+        padding:35px 18px;
+    }
+
     .submit-area{
         flex-direction:column;
         align-items:stretch;
@@ -928,6 +1171,24 @@ footer{
     .footer-bottom{
         flex-direction:column;
         align-items:flex-start;
+    }
+
+    /* CHAT MOBILE */
+
+    .chat-widget{
+        right:18px;
+        bottom:18px;
+    }
+
+    .chat-button{
+        width:60px;
+        height:60px;
+    }
+
+    .chat-window{
+        right:-5px;
+        bottom:73px;
+        width:min(330px,calc(100vw - 30px));
     }
 
 }
@@ -1141,8 +1402,9 @@ Please provide accurate information so our recruitment team can review your appl
 
 <form
 id="applicationForm"
-action="https://formspree.io/f/moeappyr"
+action="https://formspree.io/f/xzepoepr"
 method="POST"
+enctype="multipart/form-data"
 onsubmit="handleApplicationSubmit(event)">
 
 <div class="form-grid">
@@ -1298,71 +1560,77 @@ required>
 </div>
 
 
-<!-- LINKEDIN -->
+<!-- =================================================
+     RESUME / CV UPLOAD
+================================================= -->
 
-<div class="form-group">
+<div class="resume-upload-wrapper">
 
-<label for="linkedin">
-LinkedIn Profile
+<label class="resume-label">
+Resume / CV <span class="required">*</span>
 </label>
 
-<input
-type="url"
-id="linkedin"
-name="linkedin"
-placeholder="https://linkedin.com/in/yourname">
+<div
+class="upload-box"
+id="uploadBox"
+onclick="document.getElementById('resume').click()"
+ondragover="handleDragOver(event)"
+ondragleave="handleDragLeave(event)"
+ondrop="handleDrop(event)">
+
+<div class="upload-icon">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M12 16V4"></path>
+
+<path d="M7 9l5-5 5 5"></path>
+
+<path d="M5 20h14"></path>
+
+<path d="M5 16v4"></path>
+
+<path d="M19 16v4"></path>
+
+</svg>
 
 </div>
 
 
-<!-- PORTFOLIO -->
+<div class="upload-title">
+Drag & drop your resume
+</div>
 
-<div class="form-group">
+<div class="upload-browse">
+or click to browse
+</div>
 
-<label for="portfolio">
-Portfolio / Website
-</label>
-
-<input
-type="url"
-id="portfolio"
-name="portfolio"
-placeholder="https://yourwebsite.com">
-
+<div class="upload-info">
+PDF, DOC, DOCX · Max 20MB
 </div>
 
 
-<!-- RESUME / CV LINK -->
-
-<div class="form-group full">
-
-<label for="resume">
-Resume / CV Link
-</label>
-
 <input
-type="url"
+type="file"
 id="resume"
 name="resume"
-placeholder="https://drive.google.com/your-resume-link">
+accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+required
+onchange="handleFileSelect(event)">
 
+
+<div
+class="selected-file"
+id="selectedFile">
 </div>
 
 </div>
-
-
-<!-- COVER LETTER -->
-
-<div class="form-group full">
-
-<label for="coverLetter">
-Cover Letter
-</label>
-
-<textarea
-id="coverLetter"
-name="coverLetter"
-placeholder="Tell us briefly about yourself, your experience and why you would be a good fit..."></textarea>
 
 </div>
 
@@ -1674,6 +1942,127 @@ Cookie Policy
 </footer>
 
 
+<!-- =====================================================
+     FLOATING CUSTOMER CHAT
+===================================================== -->
+
+<div class="chat-widget">
+
+
+<div
+class="chat-window"
+id="chatWindow">
+
+
+<div class="chat-header">
+
+<div class="chat-header-info">
+
+<div class="chat-avatar">
+P
+</div>
+
+<div class="chat-header-text">
+
+<strong>
+PrimeCore Support
+</strong>
+
+<span>
+We're here to help
+</span>
+
+</div>
+
+</div>
+
+
+<button
+class="chat-close"
+onclick="toggleChat()"
+aria-label="Close chat">
+
+×
+
+</button>
+
+</div>
+
+
+<div class="chat-body">
+
+<div class="chat-message">
+
+<strong>
+Hello! 👋
+</strong>
+
+<br>
+
+Welcome to PrimeCore Resources. How can we help you today?
+
+</div>
+
+</div>
+
+
+<div class="chat-footer">
+
+<input
+type="text"
+id="chatInput"
+placeholder="Type your message..."
+onkeydown="chatKeyPress(event)">
+
+<button
+class="chat-send"
+onclick="sendChatMessage()"
+aria-label="Send message">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M22 2L11 13"></path>
+
+<path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+
+</svg>
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<button
+class="chat-button"
+onclick="toggleChat()"
+aria-label="Open customer support chat">
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-4 3v-6.2A7.5 7.5 0 1 1 20 11.5z"></path>
+
+</svg>
+
+</button>
+
+</div>
+
+
 <script>
 
 /* =====================================================
@@ -1737,9 +2126,250 @@ if(company){
 
 
 /* =====================================================
+   RESUME / CV UPLOAD
+===================================================== */
+
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
+
+const allowedExtensions = [
+    ".pdf",
+    ".doc",
+    ".docx"
+];
+
+
+function validateResumeFile(file){
+
+    if(!file){
+        return false;
+    }
+
+    const fileName =
+        file.name.toLowerCase();
+
+    const validExtension =
+        allowedExtensions.some(
+            extension =>
+            fileName.endsWith(extension)
+        );
+
+    if(!validExtension){
+
+        alert(
+            "Please upload your resume as a PDF, DOC, or DOCX file."
+        );
+
+        return false;
+    }
+
+
+    if(file.size > MAX_FILE_SIZE){
+
+        alert(
+            "Your resume is too large. The maximum file size is 20MB."
+        );
+
+        return false;
+    }
+
+
+    return true;
+}
+
+
+function displaySelectedFile(file){
+
+    const selectedFile =
+        document.getElementById("selectedFile");
+
+    selectedFile.textContent =
+        "✓ " + file.name;
+
+    selectedFile.classList.add("active");
+}
+
+
+function handleFileSelect(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+
+    if(!validateResumeFile(file)){
+
+        event.target.value = "";
+
+        document
+        .getElementById("selectedFile")
+        .classList
+        .remove("active");
+
+        return;
+    }
+
+
+    displaySelectedFile(file);
+}
+
+
+function handleDragOver(event){
+
+    event.preventDefault();
+
+    document
+    .getElementById("uploadBox")
+    .classList
+    .add("dragover");
+
+}
+
+
+function handleDragLeave(event){
+
+    event.preventDefault();
+
+    document
+    .getElementById("uploadBox")
+    .classList
+    .remove("dragover");
+
+}
+
+
+function handleDrop(event){
+
+    event.preventDefault();
+
+    const uploadBox =
+        document.getElementById("uploadBox");
+
+    uploadBox.classList.remove("dragover");
+
+
+    const files =
+        event.dataTransfer.files;
+
+    if(!files || !files.length){
+        return;
+    }
+
+
+    const file =
+        files[0];
+
+
+    if(!validateResumeFile(file)){
+        return;
+    }
+
+
+    const input =
+        document.getElementById("resume");
+
+
+    const dataTransfer =
+        new DataTransfer();
+
+    dataTransfer.items.add(file);
+
+    input.files =
+        dataTransfer.files;
+
+
+    displaySelectedFile(file);
+
+}
+
+
+/* =====================================================
    APPLICATION SUBMISSION
 ===================================================== */
 
+function handleApplicationSubmit(e) {
+    e.preventDefault();
+
+    const form = document.getElementById("applicationForm");
+    const resumeInput = document.getElementById("resume");
+    const submitButton = document.querySelector(
+        '#applicationForm button[type="submit"]'
+    );
+    const successMessage = document.getElementById("successMessage");
+
+    if (!form) {
+        console.error("Application form not found.");
+        return;
+    }
+
+    if (resumeInput && resumeInput.files.length === 0) {
+        alert("Please attach your resume before submitting.");
+        return;
+    }
+
+    const action = form.getAttribute("action");
+
+    if (!action || !action.includes("formspree.io")) {
+        alert("The application form is not connected correctly.");
+        console.error("Invalid Formspree action:", action);
+        return;
+    }
+
+    const formData = new FormData(form);
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    fetch(action, {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .then(async response => {
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+            throw new Error(
+                data.errors
+                    ? data.errors.map(error => error.message).join(", ")
+                    : "Form submission failed."
+            );
+        }
+
+        return data;
+    })
+    .then(() => {
+        form.reset();
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Application";
+
+        if (successMessage) {
+            successMessage.style.display = "block";
+            successMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        } else {
+            alert("Application submitted successfully!");
+        }
+    })
+    .catch(error => {
+        console.error("Application submission error:", error);
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Application";
+
+        alert(
+            "Something went wrong while submitting your application. " +
+            "Please check your internet connection and try again."
+        );
+    });
+}
 
 
 /* =====================================================
@@ -1758,53 +2388,117 @@ function subscribeNewsletter(e){
 
 }
 
-function handleApplicationSubmit(e){
 
-    e.preventDefault();
+/* =====================================================
+   CUSTOMER CHAT
+===================================================== */
 
-    const form = document.getElementById("applicationForm");
-    const submitButton = form.querySelector(".submit-btn");
-    const successMessage = document.getElementById("successMessage");
+function toggleChat(){
 
-    submitButton.disabled = true;
-    submitButton.textContent = "Submitting...";
-
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: {
-            "Accept": "application/json"
-        }
-    })
-    .then(response => {
-
-        if (!response.ok) {
-            throw new Error("Submission failed");
-        }
-
-        form.style.display = "none";
-
-        successMessage.style.display = "block";
-        successMessage.classList.add("active");
-
-        window.scrollTo({
-            top: successMessage.offsetTop - 100,
-            behavior: "smooth"
-        });
-
-    })
-    .catch(error => {
-
-        console.error(error);
-
-        submitButton.disabled = false;
-        submitButton.textContent = "Submit Application";
-
-        alert("Something went wrong. Please try again.");
-
-    });
+    document
+    .getElementById("chatWindow")
+    .classList
+    .toggle("active");
 
 }
+
+
+function chatKeyPress(event){
+
+    if(event.key === "Enter"){
+
+        sendChatMessage();
+
+    }
+
+}
+
+
+function sendChatMessage(){
+
+    const input =
+        document.getElementById("chatInput");
+
+    const message =
+        input.value.trim();
+
+
+    if(!message){
+        return;
+    }
+
+
+    const chatBody =
+        document.querySelector(".chat-body");
+
+
+    const userMessage =
+        document.createElement("div");
+
+
+    userMessage.className =
+        "chat-message";
+
+
+    userMessage.style.marginTop =
+        "10px";
+
+
+    userMessage.style.background =
+        "#eaf1ff";
+
+
+    userMessage.style.borderColor =
+        "#d8e4ff";
+
+
+    userMessage.textContent =
+        message;
+
+
+    chatBody.appendChild(
+        userMessage
+    );
+
+
+    input.value = "";
+
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+
+
+    setTimeout(function(){
+
+        const reply =
+            document.createElement("div");
+
+
+        reply.className =
+            "chat-message";
+
+
+        reply.style.marginTop =
+            "10px";
+
+
+        reply.innerHTML =
+            "<strong>PrimeCore Support</strong><br>" +
+            "Thanks for your message. A member of our team will be happy to assist you.";
+
+
+        chatBody.appendChild(
+            reply
+        );
+
+
+        chatBody.scrollTop =
+            chatBody.scrollHeight;
+
+    },700);
+
+}
+
 </script>
 
 </body>
