@@ -1402,10 +1402,9 @@ Please provide accurate information so our recruitment team can review your appl
 
 <form
 id="applicationForm"
-action="https://formspree.io/f/xzepoepr"
+action="https://formspree.io/f/moeappyr"
 method="POST"
-enctype="multipart/form-data"
-onsubmit="handleApplicationSubmit(event)">
+enctype="multipart/form-data">
 
 <div class="form-grid">
 
@@ -1618,11 +1617,13 @@ PDF, DOC, DOCX · Max 20MB
 
 <input
 type="file"
+name="resume"
 id="resume"
 name="resume"
 accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 required
-onchange="handleFileSelect(event)">
+onchange="handleFileSelect(event)"
+>
 
 
 <div
