@@ -2210,10 +2210,12 @@ Get job alerts and PrimeCore updates.
 
 <form
 class="footer-newsletter-form"
-onsubmit="subscribeNewsletter(event)">
+action="https://formspree.io/f/mzepqvla"
+method="POST">
 
 <input
 type="email"
+name="email"
 placeholder="Your email"
 required>
 
@@ -2886,17 +2888,7 @@ function handleChatKey(event){
 
 /* ================= NEWSLETTER ================= */
 
-function subscribeNewsletter(e){
 
-    e.preventDefault();
-
-    alert(
-        "Thank you for subscribing to PrimeCore Resources!"
-    );
-
-    e.target.reset();
-
-}
 
 
 /* ================= POLICIES ================= */
