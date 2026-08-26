@@ -956,236 +956,156 @@ footer{
 }
 
 
-/* ================= PRIMECORE ASSISTANT ================= */
+
+/* ================= CUSTOMER CARE ================= */
 
 .chat-button{
     position:fixed;
     right:25px;
     bottom:25px;
-    width:62px;
-    height:62px;
+    width:64px;
+    height:64px;
     border:0;
     border-radius:50%;
-    background:var(--blue);
+    background:#1f5eff;
     color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:26px;
-    z-index:300;
-    box-shadow:0 12px 35px rgba(11,24,48,.25);
-    transition:.25s ease;
-}
-
-.chat-button:hover{
-    transform:translateY(-3px) scale(1.03);
+    line-height:1;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .chat-badge{
     position:absolute;
     right:-2px;
-    top:-4px;
-    width:21px;
-    height:21px;
+    top:-5px;
+    width:23px;
+    height:23px;
     border-radius:50%;
     background:#d92d20;
     color:#fff;
-    font-size:11px;
-    font-weight:700;
+    font-size:12px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border:2px solid #fff;
+    font-weight:700;
 }
 
 .chat-panel{
     position:fixed;
     right:25px;
     bottom:100px;
-    width:370px;
+    width:340px;
     max-width:calc(100vw - 30px);
-    height:520px;
     background:#fff;
-    border-radius:18px;
-    box-shadow:0 25px 70px rgba(11,24,48,.25);
-    z-index:299;
+    border-radius:16px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    z-index:9998;
     overflow:hidden;
     display:none;
-    flex-direction:column;
-    border:1px solid var(--border);
 }
 
 .chat-panel.active{
-    display:flex;
+    display:block;
 }
 
 .chat-header{
-    background:var(--navy);
+    background:#1f5eff;
     color:#fff;
     padding:18px 20px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-}
-
-.chat-header-left{
-    display:flex;
     align-items:center;
-    gap:11px;
-}
-
-.chat-avatar{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:var(--blue);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-}
-
-.chat-header-info strong{
-    display:block;
-    font-size:15px;
-}
-
-.chat-status{
-    display:flex;
-    align-items:center;
-    gap:5px;
-    margin-top:3px;
-    color:rgba(255,255,255,.65);
-    font-size:11px;
-}
-
-.chat-status-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#32d583;
 }
 
 .chat-close{
     border:0;
-    background:rgba(255,255,255,.1);
+    background:none;
     color:#fff;
-    width:32px;
-    height:32px;
-    border-radius:50%;
-    font-size:21px;
+    font-size:24px;
+    cursor:pointer;
     line-height:1;
 }
 
 .chat-body{
-    flex:1;
-    overflow-y:auto;
-    padding:18px;
-    background:#f8faff;
+    padding:16px;
+    max-height:360px;
+    overflow:auto;
 }
 
 .chat-message{
-    max-width:88%;
-    background:#fff;
-    border:1px solid var(--border);
-    padding:13px 14px;
-    border-radius:14px 14px 14px 4px;
-    margin-bottom:14px;
-    color:var(--text);
-    font-size:14px;
-    line-height:1.55;
-    box-shadow:0 3px 12px rgba(11,24,48,.04);
+    background:#f3f6fb;
+    padding:12px 14px;
+    border-radius:12px;
+    margin-bottom:12px;
+    color:#24324a;
+    line-height:1.5;
 }
 
 .chat-message.user{
-    margin-left:auto;
-    background:var(--blue);
-    border-color:var(--blue);
+    background:#1f5eff;
     color:#fff;
-    border-radius:14px 14px 4px 14px;
+    margin-left:35px;
 }
 
-.chat-options{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    margin-top:8px;
+.chat-message.support{
+    margin-right:15px;
 }
 
-.chat-option{
-    width:100%;
-    padding:11px 13px;
-    border:1px solid #cbd7f5;
-    border-radius:10px;
-    background:#fff;
-    color:var(--blue);
-    text-align:left;
-    font-size:13px;
-    font-weight:700;
-    transition:.2s ease;
-}
-
-.chat-option:hover{
-    background:var(--light-blue);
-    border-color:var(--blue);
-}
-
-.chat-input-area{
+.chat-input-row{
     display:flex;
     gap:8px;
     padding:12px;
+    border-top:1px solid #e5e9f0;
     background:#fff;
-    border-top:1px solid var(--border);
 }
 
 .chat-input{
     flex:1;
     min-width:0;
-    border:1px solid #d5dce7;
-    border-radius:24px;
+    border:1px solid #d7dce5;
+    border-radius:22px;
     padding:11px 14px;
     outline:none;
-    font-size:13px;
+    font:inherit;
 }
 
 .chat-input:focus{
-    border-color:var(--blue);
+    border-color:#1f5eff;
 }
 
 .chat-send{
-    width:43px;
-    height:43px;
-    flex-shrink:0;
     border:0;
-    border-radius:50%;
-    background:var(--blue);
+    border-radius:22px;
+    background:#1f5eff;
     color:#fff;
-    font-size:17px;
-}
-
-.chat-send:hover{
-    background:#244bd0;
+    padding:0 17px;
+    font-weight:700;
+    cursor:pointer;
 }
 
 @media(max-width:650px){
-
     .chat-button{
         right:18px;
         bottom:18px;
         width:58px;
         height:58px;
+        z-index:9999;
     }
 
     .chat-panel{
-        left:15px;
         right:15px;
+        left:15px;
         bottom:88px;
         width:auto;
         max-width:none;
-        height:500px;
     }
-
 }
+
 
 /* ================= POLICY ================= */
 
@@ -1486,12 +1406,12 @@ footer{
 <a href="#about">About</a>
 <a href="#services">Services</a>
 
-<a href="./jobs.html">Jobs</a>
+<a href="./Jobs.html">Jobs</a>
 
 <a href="#team">Team</a>
 <a href="#contact">Contact</a>
 
-<a class="nav-button" href="./jobs.html">
+<a class="nav-button" href="./Jobs.html">
 Find Jobs
 </a>
 
@@ -1514,7 +1434,7 @@ aria-label="Open menu">
 <a href="#about" onclick="closeMenu()">About</a>
 <a href="#services" onclick="closeMenu()">Services</a>
 
-<a href="./jobs.html" onclick="closeMenu()">Jobs</a>
+<a href="./Jobs.html" onclick="closeMenu()">Jobs</a>
 
 <a href="#team" onclick="closeMenu()">Team</a>
 <a href="#contact" onclick="closeMenu()">Contact</a>
@@ -1553,7 +1473,7 @@ Connecting talented professionals with meaningful opportunities while helping or
 
 <div class="buttons">
 
-<a class="btn btn-primary" href="./jobs.html">
+<a class="btn btn-primary" href="./Jobs.html">
 Find Open Roles
 </a>
 
@@ -1584,7 +1504,7 @@ We help professionals discover meaningful work and organizations connect with ca
 
 <div class="buttons">
 
-<a class="btn btn-primary" href="./jobs.html">
+<a class="btn btn-primary" href="./Jobs.html">
 Browse Jobs
 </a>
 
@@ -1697,7 +1617,7 @@ Your next opportunity could be closer than you think.
 Explore our current openings and find a position that matches your skills, experience and career goals.
 </p>
 
-<a class="btn btn-primary" href="./jobs.html">
+<a class="btn btn-primary" href="./Jobs.html">
 Browse Open Roles
 </a>
 
@@ -2006,7 +1926,7 @@ Ready to find your next opportunity?
 Whether you're searching for your next career opportunity or looking for capable talent, PrimeCore Resources is here to help.
 </p>
 
-<a class="btn btn-primary" href="./jobs.html">
+<a class="btn btn-primary" href="./Jobs.html">
 Browse Open Roles
 </a>
 
@@ -2123,7 +2043,7 @@ Building resources and creating opportunities by connecting talented professiona
 <a href="#about">About</a>
 <a href="#team">Our Team</a>
 <a href="#services">Services</a>
-<a href="./jobs.html">Jobs</a>
+<a href="./Jobs.html">Jobs</a>
 
 </div>
 
@@ -2135,7 +2055,7 @@ Building resources and creating opportunities by connecting talented professiona
 <a href="#home">Home</a>
 <a href="#services">Our Services</a>
 
-<a href="./jobs.html">
+<a href="./Jobs.html">
 Find Jobs
 </a>
 
@@ -2168,8 +2088,8 @@ Phone
 Email
 </span>
 
-<a href="mailto:contact@primecoreresources.com">
-contact@primecoreresources.com
+<a href="mailto:info@primecoreresources.com">
+info@primecoreresources.com
 </a>
 
 </div>
@@ -2209,20 +2129,21 @@ Get job alerts and PrimeCore updates.
 </p>
 
 <form
-    class="footer-newsletter-form"
-    action="https://formspree.io/f/mzepqvla"
-    method="POST"
-    onsubmit="subscribeNewsletter(event)">
+class="footer-newsletter-form"
+action="https://formspree.io/f/mzepqvla"
+method="POST"
+onsubmit="subscribeNewsletter(event)">
 
-    <input
-        type="email"
-        name="email"
-        placeholder="Your email"
-        required>
 
-    <button type="submit">
-        Subscribe
-    </button>
+<input
+type="email"
+name="email"
+placeholder="Your email"
+required>
+
+<button type="submit">
+Subscribe
+</button>
 
 </form>
 
@@ -2261,137 +2182,6 @@ Cookie Policy
 </div>
 
 </footer>
-
-
-<button
-type="button"
-class="chat-button"
-onclick="toggleChat()"
-aria-label="Open customer care">
-
-💬
-
-<span class="chat-badge">
-1
-</span>
-
-</button>
-
-
-<!-- ================= PRIMECORE ASSISTANT ================= -->
-
-<div class="chat-panel" id="chatPanel">
-
-    <div class="chat-header">
-
-        <div class="chat-header-left">
-
-            <div class="chat-avatar">
-                P
-            </div>
-
-            <div class="chat-header-info">
-
-                <strong>PrimeCore Assistant</strong>
-
-                <div class="chat-status">
-                    <span class="chat-status-dot"></span>
-                    Online
-                </div>
-
-            </div>
-
-        </div>
-
-        <button
-            type="button"
-            class="chat-close"
-            onclick="toggleChat()"
-            aria-label="Close chat">
-            ×
-        </button>
-
-    </div>
-
-
-    <div class="chat-body" id="chatBody">
-
-        <div class="chat-message">
-            👋 Hello! Welcome to PrimeCore Resources.
-
-            <br><br>
-
-            I'm the PrimeCore Assistant. I can help you learn more about our services, job opportunities and application process.
-
-            <br><br>
-
-            How can I help you today?
-        </div>
-
-
-        <div class="chat-options">
-
-            <button
-                type="button"
-                class="chat-option"
-                onclick="sendChatQuestion('How can I find a job?')">
-                🔎 Find a Job
-            </button>
-
-            <button
-                type="button"
-                class="chat-option"
-                onclick="sendChatQuestion('How do I apply for a job?')">
-                📄 How do I apply?
-            </button>
-
-            <button
-                type="button"
-                class="chat-option"
-                onclick="sendChatQuestion('What services does PrimeCore provide?')">
-                💼 Our Services
-            </button>
-
-            <button
-                type="button"
-                class="chat-option"
-                onclick="sendChatQuestion('Tell me about PrimeCore Resources.')">
-                🏢 About PrimeCore
-            </button>
-
-            <button
-                type="button"
-                class="chat-option"
-                onclick="sendChatQuestion('How can I contact PrimeCore?')">
-                📞 Contact Us
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="chat-input-area">
-
-        <input
-            type="text"
-            class="chat-input"
-            id="chatInput"
-            placeholder="Type your question..."
-            autocomplete="off"
-            onkeydown="handleChatKey(event)">
-
-        <button
-            type="button"
-            class="chat-send"
-            onclick="sendChatMessage()"
-            aria-label="Send message">
-            ➤
-        </button>
-
-    </div>
-
-</div>
 
 
 <div class="policy-modal" id="policyModal">
@@ -2560,328 +2350,73 @@ setInterval(function(){
 },6000);
 
 
+
 /* ================= CUSTOMER CARE ================= */
 
-/* ================= PRIMECORE ASSISTANT ================= */
+function togglePrimeChat(){
 
-function toggleChat(){
+    const panel = document.getElementById("primeChatPanel");
+    const button = document.getElementById("primeChatButton");
 
-    const panel = document.getElementById("chatPanel");
+    if(!panel || !button) return;
 
-    if(panel){
-        panel.classList.toggle("active");
+    const isOpen = panel.classList.toggle("active");
+
+    panel.setAttribute("aria-hidden", String(!isOpen));
+    button.setAttribute("aria-expanded", String(isOpen));
+
+    if(isOpen){
+
+        const input = document.getElementById("primeChatInput");
+
+        if(input){
+            setTimeout(function(){
+                input.focus();
+            },100);
+        }
+
     }
 
 }
 
+function sendPrimeChatMessage(event){
 
-function addChatMessage(message, type){
+    event.preventDefault();
 
-    const chatBody =
-        document.getElementById("chatBody");
+    const input = document.getElementById("primeChatInput");
+    const body = document.getElementById("primeChatBody");
 
-    if(!chatBody) return;
+    if(!input || !body) return;
 
-    const messageDiv =
-        document.createElement("div");
+    const message = input.value.trim();
 
-    messageDiv.className =
-        "chat-message" +
-        (type === "user" ? " user" : "");
+    if(!message) return;
 
-    messageDiv.innerHTML =
-        message;
+    const userMessage = document.createElement("div");
 
-    chatBody.appendChild(messageDiv);
+    userMessage.className = "chat-message user";
+    userMessage.textContent = message;
 
-    chatBody.scrollTop =
-        chatBody.scrollHeight;
-
-}
-
-
-function getPrimeCoreReply(question){
-
-    const q =
-        question.toLowerCase().trim();
-
-
-    /* JOBS */
-
-    if(
-        q.includes("job") ||
-        q.includes("jobs") ||
-        q.includes("work") ||
-        q.includes("position") ||
-        q.includes("vacancy") ||
-        q.includes("opening") ||
-        q.includes("role")
-    ){
-
-        return `
-        🔎 You can view our current career opportunities on the PrimeCore Jobs page.
-
-        <br><br>
-
-        Look through the available positions and select a role that matches your skills and experience.
-
-        <br><br>
-
-        <a href="./jobs.html"
-        style="color:#2f5bea;font-weight:700;">
-        View Open Jobs →
-        </a>
-        `;
-
-    }
-
-
-    /* APPLICATION */
-
-    if(
-        q.includes("apply") ||
-        q.includes("application") ||
-        q.includes("resume") ||
-        q.includes("cv")
-    ){
-
-        return `
-        📄 To apply for a position, first visit our Jobs page and choose an opportunity you're interested in.
-
-        <br><br>
-
-        From there, select <strong>Apply Now</strong> and complete the application form.
-
-        <br><br>
-
-        <a href="./apply.html"
-        style="color:#2f5bea;font-weight:700;">
-        Go to Application Form →
-        </a>
-        `;
-
-    }
-
-
-    /* SERVICES */
-
-    if(
-        q.includes("service") ||
-        q.includes("services") ||
-        q.includes("staffing") ||
-        q.includes("talent") ||
-        q.includes("workforce")
-    ){
-
-        return `
-        💼 PrimeCore Resources provides workforce and staffing solutions designed for modern organizations.
-
-        <br><br>
-
-        Our services include:
-
-        <br>
-        • Remote Staffing
-        <br>
-        • Talent Solutions
-        <br>
-        • Workforce Resources
-
-        <br><br>
-
-        <a href="#services"
-        style="color:#2f5bea;font-weight:700;">
-        Explore Our Services →
-        </a>
-        `;
-
-    }
-
-
-    /* ABOUT */
-
-    if(
-        q.includes("about") ||
-        q.includes("primecore") ||
-        q.includes("company") ||
-        q.includes("who are you")
-    ){
-
-        return `
-        🏢 PrimeCore Resources connects talented professionals with meaningful opportunities while helping organizations build stronger teams.
-
-        <br><br>
-
-        Our goal is to provide useful resources, create meaningful opportunities and help modern teams find the people they need.
-
-        <br><br>
-
-        <a href="#about"
-        style="color:#2f5bea;font-weight:700;">
-        Learn More About PrimeCore →
-        </a>
-        `;
-
-    }
-
-
-    /* CONTACT */
-
-    if(
-        q.includes("contact") ||
-        q.includes("email") ||
-        q.includes("phone") ||
-        q.includes("reach") ||
-        q.includes("talk")
-    ){
-
-        return `
-        📞 You can contact PrimeCore Resources through our Contact section.
-
-        <br><br>
-
-        <a href="#contact"
-        style="color:#2f5bea;font-weight:700;">
-        Contact PrimeCore →
-        </a>
-        `;
-
-    }
-
-
-    /* GREETING */
-
-    if(
-        q.includes("hello") ||
-        q.includes("hi") ||
-        q.includes("hey") ||
-        q.includes("good morning") ||
-        q.includes("good afternoon") ||
-        q.includes("good evening")
-    ){
-
-        return `
-        👋 Hello! Welcome to PrimeCore Resources.
-
-        <br><br>
-
-        I can help you with jobs, applications, our services, or contacting PrimeCore.
-
-        <br><br>
-
-        What would you like to know?
-        `;
-
-    }
-
-
-    /* THANK YOU */
-
-    if(
-        q.includes("thank") ||
-        q.includes("thanks")
-    ){
-
-        return `
-        😊 You're very welcome!
-
-        <br><br>
-
-        If you need anything else, I'm here to help.
-        `;
-
-    }
-
-
-    /* DEFAULT */
-
-    return `
-    👋 Thanks for reaching out to PrimeCore Resources.
-
-    <br><br>
-
-    I can currently help with:
-
-    <br>
-    🔎 Finding jobs
-    <br>
-    📄 Applying for a position
-    <br>
-    💼 PrimeCore services
-    <br>
-    🏢 Information about PrimeCore
-    <br>
-    📞 Contact information
-
-    <br><br>
-
-    Try asking me about one of these topics.
-    `;
-
-}
-
-
-function sendChatMessage(){
-
-    const input =
-        document.getElementById("chatInput");
-
-    if(!input) return;
-
-    const question =
-        input.value.trim();
-
-    if(!question) return;
-
-    addChatMessage(
-        question,
-        "user"
-    );
+    body.appendChild(userMessage);
 
     input.value = "";
-
+    body.scrollTop = body.scrollHeight;
 
     setTimeout(function(){
 
-        const reply =
-            getPrimeCoreReply(question);
+        const reply = document.createElement("div");
 
-        addChatMessage(
-            reply,
-            "assistant"
-        );
+        reply.className = "chat-message support";
+        reply.textContent =
+            "Hello, Complaint noted contact customer@primecoreresources.com for further assistance";
 
-    },500);
+        body.appendChild(reply);
+        body.scrollTop = body.scrollHeight;
 
-}
-
-
-function sendChatQuestion(question){
-
-    const input =
-        document.getElementById("chatInput");
-
-    if(!input) return;
-
-    input.value =
-        question;
-
-    sendChatMessage();
+    },250);
 
 }
 
-
-function handleChatKey(event){
-
-    if(event.key === "Enter"){
-
-        event.preventDefault();
-
-        sendChatMessage();
-
-    }
-
-}
 
 /* ================= CONTACT ================= */
 
@@ -2889,41 +2424,58 @@ function handleChatKey(event){
 
 /* ================= NEWSLETTER ================= */
 
-async function subscribeNewsletter(event) {
-    event.preventDefault();
+async function subscribeNewsletter(e){
 
-    const form = event.target;
+    e.preventDefault();
+
+    const form = e.target;
     const button = form.querySelector("button");
-    const originalText = button.textContent;
+    const input = form.querySelector("input");
 
     button.disabled = true;
-    button.textContent = "Submitting...";
+    button.textContent = "Subscribing...";
 
     try {
+
+        const formData = new FormData(form);
+
         const response = await fetch(form.action, {
             method: "POST",
-            body: new FormData(form),
+            body: formData,
             headers: {
                 "Accept": "application/json"
             }
         });
 
-        if (response.ok) {
+        if(response.ok){
+
+            alert(
+                "Thank you for subscribing to PrimeCore Resources!"
+            );
+
             form.reset();
 
-            alert("Thank you for subscribing to PrimeCore Resources!");
+        }else{
 
-        } else {
-            alert("Something went wrong. Please try again.");
+            alert(
+                "We couldn't complete your subscription. Please try again."
+            );
+
         }
 
-    } catch (error) {
-        alert("Unable to submit right now. Please check your connection and try again.");
+    }catch(error){
 
-    } finally {
+        alert(
+            "Something went wrong. Please try again."
+        );
+
+    }finally{
+
         button.disabled = false;
-        button.textContent = originalText;
+        button.textContent = "Subscribe";
+
     }
+
 }
 
 
@@ -3041,6 +2593,70 @@ document
 });
 
 </script>
+
+
+<!-- ================= CUSTOMER CARE ================= -->
+
+<button
+type="button"
+class="chat-button"
+id="primeChatButton"
+onclick="togglePrimeChat()"
+aria-label="Open customer care"
+aria-expanded="false">
+
+💬
+
+<span class="chat-badge">1</span>
+
+</button>
+
+<div class="chat-panel" id="primeChatPanel" aria-hidden="true">
+
+<div class="chat-header">
+
+<strong>PrimeCore Customer Care</strong>
+
+<button
+type="button"
+class="chat-close"
+onclick="togglePrimeChat()"
+aria-label="Close customer care">
+
+×
+</button>
+
+</div>
+
+<div class="chat-body" id="primeChatBody">
+
+<div class="chat-message support">
+👋 Hi! How can we help?
+</div>
+
+</div>
+
+<form
+class="chat-input-row"
+onsubmit="sendPrimeChatMessage(event)">
+
+<input
+type="text"
+class="chat-input"
+id="primeChatInput"
+placeholder="Type your message..."
+autocomplete="off"
+aria-label="Message">
+
+<button
+type="submit"
+class="chat-send">
+Send
+</button>
+
+</form>
+
+</div>
 
 </body>
 </html>

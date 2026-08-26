@@ -927,6 +927,158 @@ footer{
 }
 
 </style>
+<style>
+
+/* ================= CUSTOMER CARE ================= */
+
+.chat-button{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:64px;
+    height:64px;
+    border:0;
+    border-radius:50%;
+    background:#1f5eff;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    line-height:1;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.chat-badge{
+    position:absolute;
+    right:-2px;
+    top:-5px;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    background:#d92d20;
+    color:#fff;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.chat-panel{
+    position:fixed;
+    right:25px;
+    bottom:100px;
+    width:340px;
+    max-width:calc(100vw - 30px);
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    z-index:9998;
+    overflow:hidden;
+    display:none;
+}
+
+.chat-panel.active{
+    display:block;
+}
+
+.chat-header{
+    background:#1f5eff;
+    color:#fff;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.chat-close{
+    border:0;
+    background:none;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    line-height:1;
+}
+
+.chat-body{
+    padding:16px;
+    max-height:360px;
+    overflow:auto;
+}
+
+.chat-message{
+    background:#f3f6fb;
+    padding:12px 14px;
+    border-radius:12px;
+    margin-bottom:12px;
+    color:#24324a;
+    line-height:1.5;
+}
+
+.chat-message.user{
+    background:#1f5eff;
+    color:#fff;
+    margin-left:35px;
+}
+
+.chat-message.support{
+    margin-right:15px;
+}
+
+.chat-input-row{
+    display:flex;
+    gap:8px;
+    padding:12px;
+    border-top:1px solid #e5e9f0;
+    background:#fff;
+}
+
+.chat-input{
+    flex:1;
+    min-width:0;
+    border:1px solid #d7dce5;
+    border-radius:22px;
+    padding:11px 14px;
+    outline:none;
+    font:inherit;
+}
+
+.chat-input:focus{
+    border-color:#1f5eff;
+}
+
+.chat-send{
+    border:0;
+    border-radius:22px;
+    background:#1f5eff;
+    color:#fff;
+    padding:0 17px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+@media(max-width:650px){
+    .chat-button{
+        right:18px;
+        bottom:18px;
+        width:58px;
+        height:58px;
+        z-index:9999;
+    }
+
+    .chat-panel{
+        right:15px;
+        left:15px;
+        bottom:88px;
+        width:auto;
+        max-width:none;
+    }
+}
+
+</style>
 </head>
 
 
@@ -1309,9 +1461,9 @@ Phone<br>
 +1 2175652081
 </a>
 
-<a href="mailto:contact@primecoreresources.com">
+<a href="mailto:info@primecoreresources.com">
 Email<br>
-contact@primecoreresources.com
+info@primecoreresources.com
 </a>
 
 </div>
@@ -1354,10 +1506,14 @@ Get job alerts and PrimeCore updates.
 
 <form
 class="footer-newsletter-form"
+action="https://formspree.io/f/mzepqvla"
+method="POST"
 onsubmit="subscribeNewsletter(event)">
+
 
 <input
 type="email"
+name="email"
 placeholder="Your email"
 required>
 
@@ -2284,15 +2440,57 @@ function closeMenu(){
 }
 
 
-function subscribeNewsletter(e){
+async function subscribeNewsletter(e){
 
     e.preventDefault();
 
-    alert(
-        "Thank you for subscribing to PrimeCore Resources!"
-    );
+    const form = e.target;
+    const button = form.querySelector("button");
+    const input = form.querySelector("input");
 
-    e.target.reset();
+    button.disabled = true;
+    button.textContent = "Subscribing...";
+
+    try {
+
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if(response.ok){
+
+            alert(
+                "Thank you for subscribing to PrimeCore Resources!"
+            );
+
+            form.reset();
+
+        }else{
+
+            alert(
+                "We couldn't complete your subscription. Please try again."
+            );
+
+        }
+
+    }catch(error){
+
+        alert(
+            "Something went wrong. Please try again."
+        );
+
+    }finally{
+
+        button.disabled = false;
+        button.textContent = "Subscribe";
+
+    }
 
 }
 
@@ -2301,5 +2499,138 @@ displayJobs();
 
 </script>
 
+
+<!-- ================= CUSTOMER CARE ================= -->
+
+<button
+type="button"
+class="chat-button"
+id="primeChatButton"
+onclick="togglePrimeChat()"
+aria-label="Open customer care"
+aria-expanded="false">
+
+💬
+
+<span class="chat-badge">1</span>
+
+</button>
+
+<div class="chat-panel" id="primeChatPanel" aria-hidden="true">
+
+<div class="chat-header">
+
+<strong>PrimeCore Customer Care</strong>
+
+<button
+type="button"
+class="chat-close"
+onclick="togglePrimeChat()"
+aria-label="Close customer care">
+
+×
+</button>
+
+</div>
+
+<div class="chat-body" id="primeChatBody">
+
+<div class="chat-message support">
+👋 Hi! How can we help?
+</div>
+
+</div>
+
+<form
+class="chat-input-row"
+onsubmit="sendPrimeChatMessage(event)">
+
+<input
+type="text"
+class="chat-input"
+id="primeChatInput"
+placeholder="Type your message..."
+autocomplete="off"
+aria-label="Message">
+
+<button
+type="submit"
+class="chat-send">
+Send
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+/* ================= CUSTOMER CARE ================= */
+
+function togglePrimeChat(){
+
+    const panel = document.getElementById("primeChatPanel");
+    const button = document.getElementById("primeChatButton");
+
+    if(!panel || !button) return;
+
+    const isOpen = panel.classList.toggle("active");
+
+    panel.setAttribute("aria-hidden", String(!isOpen));
+    button.setAttribute("aria-expanded", String(isOpen));
+
+    if(isOpen){
+
+        const input = document.getElementById("primeChatInput");
+
+        if(input){
+            setTimeout(function(){
+                input.focus();
+            },100);
+        }
+
+    }
+
+}
+
+function sendPrimeChatMessage(event){
+
+    event.preventDefault();
+
+    const input = document.getElementById("primeChatInput");
+    const body = document.getElementById("primeChatBody");
+
+    if(!input || !body) return;
+
+    const message = input.value.trim();
+
+    if(!message) return;
+
+    const userMessage = document.createElement("div");
+
+    userMessage.className = "chat-message user";
+    userMessage.textContent = message;
+
+    body.appendChild(userMessage);
+
+    input.value = "";
+    body.scrollTop = body.scrollHeight;
+
+    setTimeout(function(){
+
+        const reply = document.createElement("div");
+
+        reply.className = "chat-message support";
+        reply.textContent =
+            "Hello, Complaint noted contact customer@primecoreresources.com for further assistance";
+
+        body.appendChild(reply);
+        body.scrollTop = body.scrollHeight;
+
+    },250);
+
+}
+
+</script>
 </body>
 </html>
